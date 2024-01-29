@@ -49,7 +49,7 @@ def in_order_print(root):
     if not root:
         return
     in_order_print(root.l_child)
-    print root.data
+    print(root.data)
     in_order_print(root.r_child)
 
 def pre_order_print(root):

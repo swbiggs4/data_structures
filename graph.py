@@ -12,9 +12,9 @@ class Graph:
 
 	    # default dictionary to store graph 
 	    self.graph = defaultdict(list) 
-	#  function to add an edge to graph 
+	
+    #  function to add an edge to graph 
     #  Make a list visited[] to check if a node is already visited or not 
-    
     def addEdge(self,u,v): 
 	    self.graph[u].append(v) 
 	    self.visited = []
@@ -34,7 +34,7 @@ class Graph:
 			# Dequeue a vertex from 
 			# queue and print it 
 		    s = queue.pop(0) 
-			print (s, end = " ") 
+			print(s, end = " ") 
 
 			# Get all adjacent vertices of the 
 			# dequeued vertex s. If a adjacent 
@@ -65,7 +65,6 @@ class Graph:
  
         # Create a set to store visited vertices
         visited = set()
- 
         # Call the recursive helper function
         # to print DFS traversal
         self.DFSUtil(v, visited)

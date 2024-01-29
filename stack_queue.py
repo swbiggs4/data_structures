@@ -8,11 +8,11 @@ class Stack:
             return None
         return self.stack.pop()
 
-    def push(self,item)
+    def push(self,item):
         self.stack.append(item)
 
-    def size(self)
-        retuurn len(self.stack)
+    def size(self):
+        return len(self.stack)
 
 class Queue:
     
@@ -27,5 +27,5 @@ class Queue:
             return None
         return self.queue.pop(0)        
 
-    def size(self)
-        retuurn len(self.queue)
+    def size(self):
+        return len(self.queue)
