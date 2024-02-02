@@ -1,74 +1,53 @@
-# Python3 Program to print BFS traversal 
-# from a given source vertex. BFS(int s) 
-# traverses vertices reachable from s. 
-from collections import defaultdict 
+# Python3 Program to print BFS traversal
+# from a given source vertex. BFS(int s)
+# traverses vertices reachable from s.
+from collections import defaultdict
 
-# This class represents a directed graph 
-# using adjacency list representation 
-class Graph: 
+# This class represents a directed graph
+# using adjacency list representation
 
-    # Constructor 
-    def __init__(self): 
 
-	    # default dictionary to store graph 
-	    self.graph = defaultdict(list) 
-	
-    #  function to add an edge to graph 
-    #  Make a list visited[] to check if a node is already visited or not 
-    def addEdge(self,u,v): 
-	    self.graph[u].append(v) 
-	    self.visited = []
-	     
-	# Function to print a BFS of graph 
-    def BFS(self, s): 
+class Graph:
 
-		# Create a queue for BFS 
-	    queue = [] 
-		# Add the source node in 
-		# visited and enqueue it 
-		queue.append(s) 
-		self.visited.append(s)
+    # Constructor
+    def __init__(self):
+        # default dictionary to store graph
+        self.graph = defaultdict(list)
 	    
-        while queue: 
+    def addEdge(self, u, v):
+        # function to add an edge to graph
+        # make a list visted to check if a node is already visited or not.
+        # note this is for key == node, key has to be unique, hashable. Otherwise need a node class
+        self.graph[u].append(v)
+        self.visited = []
 
-			# Dequeue a vertex from 
-			# queue and print it 
-		    s = queue.pop(0) 
-			print(s, end = " ") 
+	# Function to print a BFS of graph
+    def BFS(self,s):
+        # create a queue for BFS
+        queue = []
+        # add source node in visted, enqueue it
+        queue.append(s)
+        self.visted.append(s)
 
-			# Get all adjacent vertices of the 
-			# dequeued vertex s. If a adjacent 
-			# has not been visited, then add it 
-			# in visited and enqueue it 
-			for i in self.graph[s]: 
-				if i not in self.visited: 
-					queue.append(i) 
-					self.visited.append(s) 
-    
-    # A function used by DFS
-    def DFSUtil(self, v, visited):
- 
-        # Mark the current node as visited
-        # and print it
-        visited.add(v)
-        print(v, end=' ')
- 
-        # Recur for all the vertices
-        # adjacent to this vertex
-        for neighbour in self.graph[v]:
-            if neighbour not in visited:
-                self.DFSUtil(neighbour, visited)
- 
-    # The function to do DFS traversal. It uses
-    # recursive DFSUtil()
-    def DFS(self, v):
- 
-        # Create a set to store visited vertices
-        visited = set()
-        # Call the recursive helper function
-        # to print DFS traversal
-        self.DFSUtil(v, visited)
+        while queue:
+             s = queue.pop(0)
+             print(s)
 
+             for neighbor in self.graph[s]:
+                  if neighbor not in self.visited:
+                        queue.append(neighbor)
+                        self.visted.append(neighbor)
+                       
+    def DFS(self, s):
+        # difference between DFS and BFS is recursion
+
+        self.visited.append(s)
+        # print current node 
+        print(s)
+
+        for neighbor in self.graph[s]:
+            if neighbor not in self.visited:
+                self.DFS(neighbor)
 # Driver code 
 # Create a graph given in 
 # the above diagram 
